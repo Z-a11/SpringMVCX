@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ISpringDao" >
+	<select id="queryDis" resultType="District">
+		SELECT * FROM `district`
+	</select>
+	<select id="queryAir" resultType="Air_quality_index">
+		SELECT * FROM `air_quality_index`
+		<where>
+			<if test="name!=null">
+				 `district_id` = #{name}
+			</if>
+		</where>
+	</select>
+</mapper>
